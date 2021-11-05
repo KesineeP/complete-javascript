@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -93,22 +93,41 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 // splice(start, deleteCount, item1, item2, itemN)
 
 // console.log(arr.splice(2));
-arr.splice(-1); //-1 is the last element in this case is 'e'
-console.log(arr);
-arr.splice(1, 2);
-console.log(arr);
+// arr.splice(-1); //-1 is the last element in this case is 'e'
+// console.log(arr);
+// arr.splice(1, 2);
+// console.log(arr);
 
-//REVERSE --> mutate original array
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['j', 'i', 'h', 'g', 'f'];
-console.log(arr2.reverse());
-console.log(arr2);
+// //REVERSE --> mutate original array
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// console.log(arr2.reverse());
+// console.log(arr2);
 
-//CONCAT --> does not mutate array
-const letters = arr.concat(arr2);
-console.log(letters);
-console.log([...arr, ...arr2]); //same result as concat
+// //CONCAT --> does not mutate array
+// const letters = arr.concat(arr2);
+// console.log(letters);
+// console.log([...arr, ...arr2]); //same result as concat
 
-//JOIN --> does not mutate array
-console.log(letters.join(' - '));
-console.log(letters);
+// //JOIN --> does not mutate array
+// console.log(letters.join(' - '));
+// console.log(letters);
+
+const movements = [200, 450, -400, 300, -650, -130, 70, 1300];
+
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+console.log('--------forEach--------'); //Cant break out of the forEach loop, it will loop until the end
+movements.forEach((movement, i, arr) => {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+});
