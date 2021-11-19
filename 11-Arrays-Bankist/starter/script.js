@@ -79,17 +79,32 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const createUsername = function (accs) {
-  accs.forEach(function (acc) {
-    acc.username = acc.owner
-      .toLocaleLowerCase()
-      .split(' ')
-      .map(name => name[0])
-      .join('');
-  });
-};
-createUsername(accounts);
-console.log(accounts);
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+
+console.log(movements);
+console.log(deposits);
+console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+/////////////MAP//////////////////////
+// const createUsername = function (accs) {
+//   accs.forEach(function (acc) {
+//     acc.username = acc.owner
+//       .toLocaleLowerCase()
+//       .split(' ')
+//       .map(name => name[0])
+//       .join('');
+//   });
+// };
+// createUsername(accounts);
+// console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
